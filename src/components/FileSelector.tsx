@@ -7,7 +7,6 @@ interface UploadFileProps {
 
 const FileSelector = ({onConvertedFile}: UploadFileProps) => {
   const [currentFile, setCurrentFile] = useState<File | null>();
-  const [progress, setProgress] = useState<number>(0);
   const [message, setMessage] = useState<string | null>();
 
   const selectFile = (event: ChangeEvent<HTMLInputElement>) => {

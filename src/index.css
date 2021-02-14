@@ -7,9 +7,39 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.page {
+  width: 21cm;
+  min-height: 29.7cm;
+  /* padding: 2cm; */
+  margin: 1cm auto;
+  border: 1px #d3d3d3 solid;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.subpage {
+  padding: 0;
+  /* border: 1px black solid; */
+  height: 237mm;
+  /* outline: 2cm #fff solid; */
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  .page {
+    -webkit-print-color-adjust: exact;
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
 }
 
 .characterContainer {
@@ -31,6 +61,7 @@ code {
   font-weight: bold;
   align-self: flex-start;
   margin-top: 4px;
+  margin-bottom: 4px;
   width: 20%;
 }
 
@@ -77,7 +108,7 @@ code {
   background-color: #c9c7c7;
   border-radius: 8px;
   width: 100px;
-  padding: 8px 16px 0px;
+  padding: 24px 16px 0px;
   align-items: center;
   text-align: center;
   display: flex;
@@ -96,7 +127,7 @@ code {
   border: 1px solid #000;
   border-radius: 8px;
   width: 85px;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 }
 
 .statValue {
@@ -112,6 +143,7 @@ code {
 
 .profBonusContainer {
   display: flex;
+  width: 300px;
 }
 
 .profBonusValue {
@@ -126,6 +158,7 @@ code {
 
 .profBonusLabel {
   text-transform: uppercase;
+  width: 137px;
   font-weight: bold;
   font-size: 10px;
   border-top: 1px;
@@ -141,7 +174,7 @@ code {
   transform: translateX(-6px);
 }
 
-.savingThrows {
+.bonuses {
   margin-top: 16px;
   border: 1px solid #000;
   border-radius: 8px;
@@ -149,15 +182,15 @@ code {
   display: flex;
   flex-direction: column;
   font-size: 12px;
-  width: 170px;
+  width: 200px;
 }
 
-.savingThrow {
+.bonus {
   display: flex;
   margin-bottom: 8px;
 }
 
-.savingThrowNoProf {
+.bonusNoProf {
   height: 10px;
   width: 10px;
   border: 1px solid #000;
@@ -166,7 +199,7 @@ code {
   margin-right: 8px;
 }
 
-.savingThrowProf {
+.bonusProf {
   height: 10px;
   width: 10px;
   border: 1px solid #000;
@@ -176,8 +209,12 @@ code {
   margin-right: 8px;
 }
 
-.savingThrowValue {
+.bonusValue {
   margin-right: 8px;
   border-bottom: 1px solid #000;
   width: 28px;
+}
+
+.skillStat {
+  color: #8c8c8c;
 }

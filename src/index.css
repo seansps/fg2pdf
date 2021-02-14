@@ -108,7 +108,7 @@ body {
   background-color: #c9c7c7;
   border-radius: 8px;
   width: 100px;
-  padding: 24px 16px 0px;
+  padding: 28px 16px 0px;
   align-items: center;
   text-align: center;
   display: flex;
@@ -127,7 +127,7 @@ body {
   border: 1px solid #000;
   border-radius: 8px;
   width: 85px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .statValue {
@@ -204,6 +204,26 @@ body {
   width: 10px;
   border: 1px solid #000;
   background-color: #000;
+  border-radius: 5px;
+  margin-top: 3px;
+  margin-right: 8px;
+}
+
+.bonusHalfProf {
+  height: 10px;
+  width: 10px;
+  border: 1px solid #000;
+  background-color: #a1a1a1;
+  border-radius: 5px;
+  margin-top: 3px;
+  margin-right: 8px;
+}
+
+.bonusDoubleProf {
+  height: 10px;
+  width: 10px;
+  border: 1px solid #000;
+  background-color: #ca0000;
   border-radius: 5px;
   margin-top: 3px;
   margin-right: 8px;

@@ -5,13 +5,15 @@ interface SkillProps {
     skillName: string;
     ability: any;
     abilityShortName: string;
+    profBonus: number;
 }
 
 export const Skill = ({
     skillList, 
     skillName, 
     ability, 
-    abilityShortName
+    abilityShortName,
+    profBonus
 }: SkillProps) => {
 
   const getSkill = (skillList: any, skillName: string): any => {
@@ -25,14 +27,28 @@ export const Skill = ({
     });
     return skill;
   }
+
+  const hasHalfProf = (skill: any): boolean => {
+    return parseInt(skill.prof[0]._, 10) === 3;
+  }
   
-  const getSkillBonus = (skill: any, ability: any): number => {
+  const hasDoubleProf = (skill: any): boolean => {
+    return parseInt(skill.prof[0]._, 10) === 2;
+  }
+  
+  const getSkillBonus = (skill: any, ability: any, profBonus: number): number => {
     const skillProf = skill.prof;
     let skillBonus = parseInt(ability.bonus[0]._, 10);
     
     if (skillProf && skillProf.length > 0) {
-      const profBonus = parseInt(skill.prof[0]._, 10);
-      skillBonus += profBonus * skillBonus;
+      const skillProf = parseInt(skill.prof[0]._, 10);
+      if (skillProf === 3) {
+        // This is actually half proficiency
+        skillBonus += Math.floor(1/2 * profBonus);
+      }
+      else {
+        skillBonus += skillProf * profBonus;
+      }
     }
   
     return skillBonus;
@@ -43,14 +59,24 @@ export const Skill = ({
   }
 
   const skill = getSkill(skillList, skillName);
-  const skillBonus = getSkillBonus(skill, ability);
+  const skillBonus = getSkillBonus(skill, ability, profBonus);
   const hasSkill = hasSkillProf(skill);
+  let bonusProfClassName = 'bonusNoProf';
+  if (hasSkill) {
+    if (hasHalfProf(skill)) {
+      bonusProfClassName = 'bonusHalfProf';
+    }
+    else if (hasDoubleProf(skill)) {
+      bonusProfClassName = 'bonusDoubleProf';
+    }
+    else {
+      bonusProfClassName = 'bonusProf';
+    }
+  }
 
   return (
     <div className='bonus'>
-      <div 
-          className={
-          hasSkill ? 'bonusProf' : 'bonusNoProf'} />
+      <div className={bonusProfClassName}/>
       <div className='bonusValue'>
           {skillBonus >= 0 ? '+' : ''}{skillBonus}
       </div>

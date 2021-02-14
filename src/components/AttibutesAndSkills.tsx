@@ -33,7 +33,13 @@ const getSaveBonus = (profBonus: number, ability: any): number => {
   let saveBonus = parseInt(ability.bonus[0]._, 10);
   
   if (saveProf && saveProf.length > 0) {
-    saveBonus += profBonus * parseInt(saveProf[0]._, 10);
+    const saveProfVal = parseInt(saveProf[0]._, 10);
+    if (saveProfVal === 3) {
+      saveBonus += Math.floor(1/2 * profBonus);
+    }
+    else {
+      saveBonus += profBonus * saveProfVal;
+    }
   }
 
   return saveBonus;
@@ -315,7 +321,11 @@ const AttributesAndSkills = ({character}: AttributesAndSkillsProps) => {
             <div className='statLabel'>Saving Throws</div>
           </div>
 
-          <Skills skillList={skillList} character={character} />
+          <Skills 
+            skillList={skillList} 
+            character={character} 
+            profBonus={profBonus}
+          />
         </div>
 
       </div>

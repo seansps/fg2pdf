@@ -54,14 +54,13 @@ body {
 
 .headerInfo {
   width: 80%;
+  margin-bottom: 16px;
 }
 
 .name {
   font-size: 24px;
   font-weight: bold;
   align-self: flex-start;
-  margin-top: 4px;
-  margin-bottom: 4px;
   width: 20%;
 }
 
@@ -138,7 +137,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 200px;
-  margin-left: 16px;
+  margin-left: 32px;
 }
 
 .profBonusContainer {
@@ -237,4 +236,32 @@ body {
 
 .skillStat {
   color: #8c8c8c;
+}
+
+.defences {
+  background-color: #c9c7c7;
+  border-radius: 8px;
+  width: 300px;
+  margin-left: 48px;
+  padding: 28px 16px 0px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.acImage {
+  position: absolute;
+  height: 75px;
+}
+
+.acValue {
+  width: 70px;
+  font-size: 32px;
+  margin-top: 10px;
 }

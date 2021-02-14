@@ -1,5 +1,6 @@
 import React from "react";
 import Skills from "./Skills";
+import Defenses from './Defences';
 
 interface AttributesAndSkillsProps {
   character: any;
@@ -180,6 +181,11 @@ const AttributesAndSkills = ({character}: AttributesAndSkillsProps) => {
 
   const skillList = character.skilllist[0];
 
+  const defenses = character.defenses[0];
+  const hp = character.hp[0];
+  const initiative = character.initiative[0];
+  const speed = character.speed[0];
+
   return (
     <div className='characterContainer'>
       <div className='header'>
@@ -328,6 +334,13 @@ const AttributesAndSkills = ({character}: AttributesAndSkillsProps) => {
           />
         </div>
 
+        
+        <Defenses 
+          defenses={defenses}
+          hp={hp}
+          initiative={initiative}
+          speed={speed}
+        />
       </div>
     </div>
   )

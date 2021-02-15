@@ -15,16 +15,19 @@ export const Senses = ({
   const perception = passivePerception ? 
     passivePerception[0]._ : (10 + perceptionBonus);
 
-  let sensesStr = '';
+  const sensesStr: string[] = [];
   if (senses && senses.length) {
     senses.forEach((sense: any) => {
-      sensesStr = `${sensesStr}${sense._}\n`;
+      sensesStr.push(`${sensesStr}${sense._}`);
     });
+  }
+  if (!sensesStr.length) {
+    sensesStr.push('None');
   }
 
   return (
-    <div className='senses'>
-      <div className='sensesLabel'>
+    <div className='listSection'>
+      <div className='listLabel'>
         Senses
       </div>
       <div className='passivePerception'>
@@ -33,9 +36,13 @@ export const Senses = ({
           Passive Perception
         </div>
       </div>
-      <p className='sensesList'>
-        {sensesStr}
-      </p>
+      <div className='sensesList'>
+        {sensesStr.map((sense, index) => {
+          return (
+            <div className='sense' key={`sense${index}`}>{sense}</div>
+          )
+        })}
+      </div>
       <div className='statLabel'>
         Other
       </div>

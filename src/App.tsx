@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { setConstantValue } from "typescript";
 import "./App.css";
 import CharacterSheet from "./components/CharacterSheet";
 import FileSelector from "./components/FileSelector";

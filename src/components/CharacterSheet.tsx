@@ -1,5 +1,8 @@
 import React from "react";
 import AttributesAndSkills from "./AttibutesAndSkills";
+import { CharacterHeader } from "./CharacterHeader";
+import Features from "./Features";
+import Inventory from "./Inventory";
 import Page from './Page';
 
 interface CharacterSheetProps {
@@ -19,9 +22,16 @@ const CharacterSheet = ({characterData}: CharacterSheetProps) => {
   console.log(character);
 
   return (
-    <Page>
-      <AttributesAndSkills character={character} />
-    </Page>
+    <>
+      <Page>
+        <div className='characterContainer'>
+          <CharacterHeader character={character} />
+          <AttributesAndSkills character={character} />
+        </div>
+      </Page>
+      <Features character={character} />
+      <Inventory character={character} />
+    </>
   )
 }
 

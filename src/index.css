@@ -103,6 +103,12 @@ body {
   display: flex;
 }
 
+@media print {
+  .columns {
+    margin-left: 70px;
+  }
+}
+
 .stats {
   background-color: #c9c7c7;
   border-radius: 8px;

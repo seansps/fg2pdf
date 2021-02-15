@@ -8,6 +8,48 @@ interface SkillProps {
     profBonus: number;
 }
 
+export const getSkill = (skillList: any, skillName: string): any => {
+  const keys = Object.keys(skillList);
+  let skill = null;
+  keys.forEach((key) => {
+    const curSkill = skillList[key][0];
+    if (curSkill.name[0]._ === skillName) {
+      skill = curSkill;
+    }
+  });
+  return skill;
+}
+
+const hasHalfProf = (skill: any): boolean => {
+  return parseInt(skill.prof[0]._, 10) === 3;
+}
+
+const hasDoubleProf = (skill: any): boolean => {
+  return parseInt(skill.prof[0]._, 10) === 2;
+}
+
+export const getSkillBonus = (skill: any, ability: any, profBonus: number): number => {
+  const skillProf = skill.prof;
+  let skillBonus = parseInt(ability.bonus[0]._, 10);
+  
+  if (skillProf && skillProf.length > 0) {
+    const skillProf = parseInt(skill.prof[0]._, 10);
+    if (skillProf === 3) {
+      // This is actually half proficiency
+      skillBonus += Math.floor(1/2 * profBonus);
+    }
+    else {
+      skillBonus += skillProf * profBonus;
+    }
+  }
+
+  return skillBonus;
+}
+
+const hasSkillProf = (skill: any): boolean => {
+  return parseInt(skill.prof[0]._, 10) > 0;
+}
+
 export const Skill = ({
     skillList, 
     skillName, 
@@ -15,48 +57,6 @@ export const Skill = ({
     abilityShortName,
     profBonus
 }: SkillProps) => {
-
-  const getSkill = (skillList: any, skillName: string): any => {
-    const keys = Object.keys(skillList);
-    let skill = null;
-    keys.forEach((key) => {
-      const curSkill = skillList[key][0];
-      if (curSkill.name[0]._ === skillName) {
-        skill = curSkill;
-      }
-    });
-    return skill;
-  }
-
-  const hasHalfProf = (skill: any): boolean => {
-    return parseInt(skill.prof[0]._, 10) === 3;
-  }
-  
-  const hasDoubleProf = (skill: any): boolean => {
-    return parseInt(skill.prof[0]._, 10) === 2;
-  }
-  
-  const getSkillBonus = (skill: any, ability: any, profBonus: number): number => {
-    const skillProf = skill.prof;
-    let skillBonus = parseInt(ability.bonus[0]._, 10);
-    
-    if (skillProf && skillProf.length > 0) {
-      const skillProf = parseInt(skill.prof[0]._, 10);
-      if (skillProf === 3) {
-        // This is actually half proficiency
-        skillBonus += Math.floor(1/2 * profBonus);
-      }
-      else {
-        skillBonus += skillProf * profBonus;
-      }
-    }
-  
-    return skillBonus;
-  }
-  
-  const hasSkillProf = (skill: any): boolean => {
-    return parseInt(skill.prof[0]._, 10) > 0;
-  }
 
   const skill = getSkill(skillList, skillName);
   const skillBonus = getSkillBonus(skill, ability, profBonus);

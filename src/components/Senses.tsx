@@ -3,17 +3,17 @@ import React from "react";
 interface SensesProps {
   passivePerception: any;
   senses: any;
-  wisdomBonus: number;
+  perceptionBonus: number;
 }
 
 export const Senses = ({
     passivePerception,
     senses,
-    wisdomBonus
+    perceptionBonus
 }: SensesProps) => {
 
   const perception = passivePerception ? 
-    passivePerception[0]._ : (10 + wisdomBonus);
+    passivePerception[0]._ : (10 + perceptionBonus);
 
   let sensesStr = '';
   if (senses && senses.length) {

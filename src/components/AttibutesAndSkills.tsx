@@ -2,6 +2,7 @@ import React from "react";
 import Skills from "./Skills";
 import Defenses, { MaxDexBonus } from './Defenses';
 import Senses from './Senses';
+import { getSkillBonus, getSkill } from './Skill';
 
 interface AttributesAndSkillsProps {
   character: any;
@@ -300,6 +301,8 @@ const AttributesAndSkills = ({character}: AttributesAndSkillsProps) => {
 
   const senses = character.senses;
   const passivePerception = character.perception;
+  const perception = getSkill(skillList, "Perception");
+  const perceptionBonus = getSkillBonus(perception, abilities.wisdom[0], profBonus);
 
   return (
     <div className='characterContainer'>
@@ -464,7 +467,7 @@ const AttributesAndSkills = ({character}: AttributesAndSkillsProps) => {
       <Senses 
         senses={senses} 
         passivePerception={passivePerception}
-        wisdomBonus={parseInt(wisdomBonus, 10)}
+        perceptionBonus={perceptionBonus}
       />
     </div>
   )

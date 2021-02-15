@@ -29,7 +29,7 @@ const hasDoubleProf = (skill: any): boolean => {
 }
 
 export const getSkillBonus = (skill: any, ability: any, profBonus: number): number => {
-  const skillProf = skill.prof;
+  const skillProf = skill?.prof;
   let skillBonus = parseInt(ability.bonus[0]._, 10);
   
   if (skillProf && skillProf.length > 0) {
@@ -47,7 +47,10 @@ export const getSkillBonus = (skill: any, ability: any, profBonus: number): numb
 }
 
 const hasSkillProf = (skill: any): boolean => {
-  return parseInt(skill.prof[0]._, 10) > 0;
+  const prof = skill?.prof;
+  if (prof)
+    return parseInt(skill?.prof[0]._, 10) > 0;
+  return false;
 }
 
 export const Skill = ({

@@ -195,6 +195,7 @@ export const Inventory = ({character}: CharacterProps) => {
                           </div>
                         )
                       }
+                      return null;
                     })}
                 </div>
               )}
@@ -207,19 +208,19 @@ export const Inventory = ({character}: CharacterProps) => {
                       <div className='treasureLabel'>
                         {slot1Name}
                       </div>
-                      <div className={slot1Amount !== '0' ? 'treasureAmount' : 'treasureEmpty'}>
+                      <div className={slot1Amount && slot1Amount !== '0' ? 'treasureAmount' : 'treasureEmpty'}>
                         {slot1Amount !== '0' && slot1Amount}
                       </div>
                       <div className='treasureLabel'>
                         {slot2Name}
                       </div>
-                      <div className={slot2Amount !== '0' ? 'treasureAmount' : 'treasureEmpty'}>
+                      <div className={slot2Amount && slot2Amount !== '0' ? 'treasureAmount' : 'treasureEmpty'}>
                         {slot2Amount !== '0' && slot2Amount}
                       </div>
                       <div className='treasureLabel'>
                         {slot3Name}
                       </div>
-                      <div className={slot3Amount !== '0' ? 'treasureAmount' : 'treasureEmpty'}>
+                      <div className={slot3Amount && slot3Amount !== '0' ? 'treasureAmount' : 'treasureEmpty'}>
                         {slot3Amount !== '0' && slot3Amount}
                       </div>
                     </div>
@@ -227,19 +228,19 @@ export const Inventory = ({character}: CharacterProps) => {
                       <div className='treasureLabel'>
                         {slot4Name}
                       </div>
-                      <div className={slot4Amount !== '0' ? 'treasureAmount' : 'treasureEmpty'}>
+                      <div className={slot4Amount && slot4Amount !== '0' ? 'treasureAmount' : 'treasureEmpty'}>
                         {slot4Amount !== '0' && slot4Amount}
                       </div>
                       <div className='treasureLabel'>
                         {slot5Name}
                       </div>
-                      <div className={slot5Amount !== '0' ? 'treasureAmount' : 'treasureEmpty'}>
+                      <div className={slot5Amount && slot5Amount !== '0' ? 'treasureAmount' : 'treasureEmpty'}>
                         {slot5Amount !== '0' && slot5Amount}
                       </div>
                       <div className='treasureLabel'>
                         {slot6Name}
                       </div>
-                      <div className={slot6Amount !== '0' ? 'treasureAmount' : 'treasureEmpty'}>
+                      <div className={slot6Amount && slot6Amount !== '0' ? 'treasureAmount' : 'treasureEmpty'}>
                         {slot6Amount !== '0' && slot6Amount}
                       </div>
                     </div>

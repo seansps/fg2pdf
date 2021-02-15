@@ -387,6 +387,12 @@ body {
   padding: 4px 0;
 }
 
+.listLineEmpty {
+  border-bottom: 1px solid #c9c7c7;
+  padding: 4px 0;
+  height: 16px;
+}
+
 .inventoryItem {
   display: flex;
   border-bottom: 1px solid #c9c7c7;
@@ -520,4 +526,30 @@ body {
   display: flex;
   width: 100%;
   padding-top: 8px;
+}
+
+.detailsLabel {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  transform: translateY(1px);
+  margin-right: 8px;
+}
+
+.detailsRow {
+  display: flex;
+  width: 100%;
+  margin-left: 165px;
+  padding-top: 8px;
+}
+
+.detailsValue {
+  margin-right: 8px;
+  font-size: 14px;
+  align-content: center;
+  align-items: center;
+  align-self: center;
 }

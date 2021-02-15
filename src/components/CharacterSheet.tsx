@@ -1,8 +1,11 @@
 import React from "react";
+import Actions from "./Actions";
+import AdventureLog from "./AdventureLog";
 import AttributesAndSkills from "./AttibutesAndSkills";
 import { CharacterHeader } from "./CharacterHeader";
 import Features from "./Features";
 import Inventory from "./Inventory";
+import Notes from "./Notes";
 import Page from './Page';
 
 interface CharacterSheetProps {
@@ -31,6 +34,9 @@ const CharacterSheet = ({characterData}: CharacterSheetProps) => {
       </Page>
       <Features character={character} />
       <Inventory character={character} />
+      <Notes character={character} />
+      <AdventureLog character={character} />
+      <Actions character={character} />
     </>
   )
 }

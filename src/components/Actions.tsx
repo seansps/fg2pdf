@@ -20,6 +20,7 @@ const getDamage = (damagelist: any): string => {
   if (damagelist && damagelist.length) {
 
     const keys = Object.keys(damagelist[0]);
+    const usedStrings = {};
     keys.forEach((key)=>{
       const dice = damagelist[0][key][0].dice;
       const type = damagelist[0][key][0].type
@@ -39,6 +40,9 @@ const getDamage = (damagelist: any): string => {
           }
           else if (die._ === 'd12') {
             damage = '1d12'
+          }
+          else {
+            damage = die._;
           }
         });
       }
@@ -153,6 +157,7 @@ export const Actions = ({character}: SpellsProps) => {
   // Add weaponlist
   allFeatures.push('TITLE:Weapons')
   allFeatures.push('TITLE:NORENDER')
+  const usedWeaponStrings: Record<string, number> = {};
   if (weaponList && weaponList.length > 0) {
     weaponList.forEach((weaponKeys: any) => {
       const keys = Object.keys(weaponKeys);
@@ -163,7 +168,10 @@ export const Actions = ({character}: SpellsProps) => {
         const maxammo = weapon.maxammo ? parseInt(weapon.maxammo[0]._, 10) : 0
         const string = `${name}${maxammo > 0 ? ` (Ammo ${ammo}/${maxammo})`:''} 
           - ${getDamage(weapon.damagelist)}`
-        allFeatures.push(string)
+        if (Object.keys(usedWeaponStrings).indexOf(string) === -1) {
+          allFeatures.push(string)
+          usedWeaponStrings[string] = 1;
+        }
       });
     });
   }

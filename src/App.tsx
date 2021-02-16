@@ -15,7 +15,10 @@ function App() {
     <div className="App">
       {!characterData && (
         <>
-          <h1 className='subtitle'>To Begin, Select an XML File</h1>
+          <h1 className='title'>Fantasy Grounds PDF Generator</h1>
+          <h2 className='subtitle'>
+            Select a Fantasy Grounds Unity Character XML File
+          </h2>
           <FileSelector onConvertedFile={onConvertedFile} />
         </>
       )}

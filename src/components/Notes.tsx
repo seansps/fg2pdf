@@ -61,7 +61,7 @@ export const Notes = ({character}: NotesProps) => {
   allFeatures.push('TITLE:NORENDER')
   allFeatures.push('TITLE:NORENDER')
   allFeatures.push('TITLE:NORENDER')
-  if (deity && deity.length > 0) {
+  if (deity && deity.length > 0 && deity[0]._) {
     const deityStr = deity[0]._;
     allFeatures.push(deityStr);
   }
@@ -204,7 +204,7 @@ export const Notes = ({character}: NotesProps) => {
         // Split into groups
         for (let i=0; i < page.length; i += 1) {
           const line = page[i];
-          if (i !== 0 && line.indexOf('TITLE') === 0 && line.indexOf('NORENDER') === -1) {
+          if (i !== 0 && line && line.indexOf('TITLE') === 0 && line.indexOf('NORENDER') === -1) {
             // New group
             groups.push([]);
             curIndex += 1;
@@ -272,7 +272,7 @@ export const Notes = ({character}: NotesProps) => {
                   <div className='listSection' key={`group-${gindex}`}>
                     {
                       group.map((string,sindex) => {
-                        const isHeader = string.indexOf('TITLE:') === 0;
+                        const isHeader = string && string.indexOf('TITLE:') === 0;
                         if (isHeader) {
                           if (string.indexOf('NORENDER') === -1) {
                             return (
@@ -287,7 +287,7 @@ export const Notes = ({character}: NotesProps) => {
                         }
                         else {
                           return (
-                            <div className={string.length > 0 ? 'listLine' 
+                            <div className={string && string.length > 0 ? 'listLine' 
                               : 'listLineEmpty'} key={`string-${gindex}${sindex}`}>
                               {string}
                             </div>

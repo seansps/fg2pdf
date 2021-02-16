@@ -20,7 +20,6 @@ const getDamage = (damagelist: any): string => {
   if (damagelist && damagelist.length) {
 
     const keys = Object.keys(damagelist[0]);
-    const usedStrings = {};
     keys.forEach((key)=>{
       const dice = damagelist[0][key][0].dice;
       const type = damagelist[0][key][0].type

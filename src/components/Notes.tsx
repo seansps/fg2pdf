@@ -281,6 +281,9 @@ export const Notes = ({character}: NotesProps) => {
                               </div>
                             )
                           }
+                          else {
+                            return null;
+                          }
                         }
                         else {
                           return (

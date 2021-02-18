@@ -47,39 +47,39 @@ const getExpNeeded = (character: any): string => {
     case 2:
       return '/ 900';
     case 3:
-      return '/ 2,700';
+      return '/ 2700';
     case 4:
-      return '/ 6,500';
+      return '/ 6500';
     case 5:
-      return '/ 14,000';
+      return '/ 14000';
     case 6:
-      return '/ 23,000';
+      return '/ 23000';
     case 7:
-      return '/ 34,000';
+      return '/ 34000';
     case 8:
-      return '/ 48,000';
+      return '/ 48000';
     case 9:
-      return '/ 64,000';
+      return '/ 64000';
     case 10:
-      return '/ 85,000';
+      return '/ 85000';
     case 11:
-      return '/ 100,000';
+      return '/ 100000';
     case 12:
-      return '/ 120,000';
+      return '/ 120000';
     case 13:
-      return '/ 140,000';
+      return '/ 140000';
     case 14:
-      return '/ 165,000';
+      return '/ 165000';
     case 15:
-      return '/ 195,000';
+      return '/ 195000';
     case 16:
-      return '/ 225,000';
+      return '/ 225000';
     case 17:
-      return '/ 265,000';
+      return '/ 265000';
     case 18:
-      return '/ 305,000';
+      return '/ 305000';
     case 19:
-      return '/ 355,000';
+      return '/ 355000';
     case 20:
       return '';
     default:

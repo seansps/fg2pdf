@@ -72,7 +72,7 @@ const getPowers = (powers: any): Power[] => {
         }
       }
 
-      if (level === '0') {
+      if (group.toLowerCase() === 'spells' && level === '0') {
         group = `Cantrips`
       }
       else if (group.toLowerCase() === 'spells' && level === '1') {
@@ -249,7 +249,6 @@ export const Actions = ({character}: SpellsProps) => {
   let prevGroup = 'NONE';
   let curGroup = '';
   allPowers.forEach(power => {
-    console.log(power)
     curGroup = power.group;
     // Push group title
     if (prevGroup !== curGroup) {

@@ -23,6 +23,7 @@ const getDamage = (damagelist: any): string => {
     keys.forEach((key)=>{
       const dice = damagelist[0][key][0].dice;
       const type = damagelist[0][key][0].type
+      const bonus = damagelist[0][key][0].bonus;
       if (dice && dice.length) {
         dice.forEach((die: any) => {
           if (die._ === 'd4') {
@@ -41,9 +42,18 @@ const getDamage = (damagelist: any): string => {
             damage = '1d12'
           }
           else {
-            damage = die._;
+            if (die._) {
+              damage = die._;
+            }
+            else {
+              damage = ''
+            }
           }
         });
+      }
+
+      if (bonus && bonus.length && bonus[0]._ !== '0') {
+        damage = `${damage} ${damage.length ? '+' : ''} ${bonus[0]._}`
       }
   
       if (type && type.length) {

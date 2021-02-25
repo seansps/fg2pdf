@@ -22,6 +22,8 @@ const CharacterSheet = ({characterData}: CharacterSheetProps) => {
 
   const character = characterData.root.character[0];
 
+  console.log(character);
+
   return (
     <>
       <Page>

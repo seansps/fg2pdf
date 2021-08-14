@@ -334,11 +334,15 @@ const AttributesAndSkills = ({character}: AttributesAndSkillsProps) => {
         />
       </div>
 
-      <Senses 
-          senses={senses} 
-          passivePerception={passivePerception}
-          perceptionBonus={perceptionBonus}
-        />
+      <div className="footers">
+        <div className="rows">
+          <Senses 
+              senses={senses} 
+              passivePerception={passivePerception}
+              perceptionBonus={perceptionBonus}
+            />
+        </div>
+      </div>
     </>
   )
 };

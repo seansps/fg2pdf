@@ -10,7 +10,7 @@ interface CharacterSheetProps {
 const Main = ({character}: CharacterSheetProps) => {
   return (
     <Page>
-      <div className='characterContainer'>
+      <div className='mainPage'>
         <CharacterHeader character={character} />
         <Attributes character={character} />
       </div>

@@ -60,6 +60,10 @@ export const Skills = ({ skills }: SkillsProps) => {
 
   const allSkills = getSkills(skills);
 
+  if (!allSkills.length) {
+    return null;
+  }
+
   return (
     <div className="dccSkills">
       {allSkills.map((skill, index) => (

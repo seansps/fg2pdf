@@ -6,7 +6,7 @@ interface FeaturesProps {
   character: any;
 }
 
-const MAX_FEATURE_LINES = 28;
+const MAX_FEATURE_LINES = 30;
 
 export const Features = ({character}: FeaturesProps) => {
 

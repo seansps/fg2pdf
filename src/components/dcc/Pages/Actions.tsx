@@ -14,7 +14,7 @@ interface Power {
   mercurial: string;
 }
 
-const MAX_SPELLS_LINES = 25;
+const MAX_SPELLS_LINES = 30;
 
 const getDamage = (damagelist: any): string => {
   let damage = '';

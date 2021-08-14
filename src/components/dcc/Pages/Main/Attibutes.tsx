@@ -239,14 +239,16 @@ const Attributes = ({ character }: AttributesAndSkillsProps) => {
           </div>
         </div>
       </div>
-      <div className="rows">
-        <div className="mainRow">
-          <p>{senses || "None"}</p>
-          <div className="statLabel">Senses</div>
-        </div>
-        <div className="mainRow">
-          <p>{augur}</p>
-          <div className="statLabel">Birth Augur and Lucky Roll</div>
+      <div className='footers'>
+        <div className="rows">
+          <div className="mainRow">
+            <p>{senses || "None"}</p>
+            <div className="statLabel">Senses</div>
+          </div>
+          <div className="mainRow">
+            <p>{augur}</p>
+            <div className="statLabel">Birth Augur and Lucky Roll</div>
+          </div>
         </div>
       </div>
     </>

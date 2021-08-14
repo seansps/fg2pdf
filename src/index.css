@@ -16,10 +16,11 @@ html {
 }
 
 .page {
-  size: 21.59cm 27.94cm;
+  size: 8.5in 11in;
   background: white;
-  width: 21.59cm;
-  height: 27.94cm;
+  width: 8.5in;
+  /* Hack until I figure out why view height doesn't match print height */
+  height: 12.7in;
   display: block;
   margin: 0.5cm auto;
   box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.1);
@@ -27,6 +28,8 @@ html {
 
 @page {
   size: 8.5in 11in;
+  width: 8.5in;
+  height: 11in;
   margin: 0;
   max-height: 100%;
   max-width: 100%;
@@ -47,6 +50,13 @@ html {
 
 .characterContainer {
   padding: 30px;
+}
+
+.mainPage {
+  padding: 30px;
+  height: 94%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -148,8 +158,8 @@ html {
 .dccProficienciesCol {
   display: flex;
   flex-direction: column;
-  width: 310px;
-  margin-left: 32px;
+  width: 100%;
+  margin: 0 48px 0 32px;
 }
 
 .dccProficiencies {
@@ -296,8 +306,9 @@ html {
 .defences {
   background-color: #c9c7c7;
   border-radius: 8px;
-  width: 300px;
+  width: 100%;
   margin-left: 48px;
+  margin-right: 8px;
   padding: 28px 18px 0px;
   align-items: center;
   text-align: center;
@@ -654,9 +665,17 @@ html {
   align-self: center;
 }
 
+.footers {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  height: 100%;
+}
+
 .rows {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .row2 {

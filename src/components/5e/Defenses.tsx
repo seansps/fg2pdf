@@ -159,7 +159,7 @@ export const Defenses = ({
 
   return (
     <div className='defences'>
-      <div className='row'>
+      <div className='row2'>
         <img className='acImage' src={shield} alt='ac'></img>
         <div className='acContainer'>
           <div className='acValue'>{getAc(defenses, abilities, maxDexBonus)}</div>

@@ -25,7 +25,7 @@ const CharacterSheet = ({characterData}: CharacterSheetProps) => {
   return (
     <>
       <Page>
-        <div className='characterContainer'>
+        <div className='mainPage'>
           <CharacterHeader character={character} />
           <AttributesAndSkills character={character} />
         </div>

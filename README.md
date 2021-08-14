@@ -1,7 +1,7 @@
 # Testing Locally
 
 ```
-yarn i
+yarn install
 ```
 
 ```

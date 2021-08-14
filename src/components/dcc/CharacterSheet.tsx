@@ -1,12 +1,9 @@
 import React from "react";
-import Actions from "./Actions";
-import AdventureLog from "./AdventureLog";
-import AttributesAndSkills from "./AttibutesAndSkills";
-import { CharacterHeader } from "./CharacterHeader";
-import Features from "./Features";
-import Inventory from "./Inventory";
-import Notes from "./Notes";
-import Page from './Page';
+import Inventory from "./Pages/Inventory";
+import AdventureLog from "./Pages/AdventureLog";
+import Main from "./Pages/Main/Main";
+import { Notes } from "./Pages/Notes";
+import Actions from "./Pages/Actions";
 
 interface CharacterSheetProps {
   characterData: any;
@@ -22,17 +19,12 @@ const CharacterSheet = ({characterData}: CharacterSheetProps) => {
 
   const character = characterData.root.character[0];
 
+  console.log('GOT DCC');
   console.log(character);
 
   return (
     <>
-      <Page>
-        <div className='characterContainer'>
-          <CharacterHeader character={character} />
-          <AttributesAndSkills character={character} />
-        </div>
-      </Page>
-      <Features character={character} />
+      <Main character={character} />
       <Inventory character={character} />
       <Notes character={character} />
       <AdventureLog character={character} />

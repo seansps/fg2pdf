@@ -1,6 +1,6 @@
 import React from "react";
-import CharacterHeader from "./CharacterHeader";
-import Page from "./Page";
+import CharacterHeader from "../CharacterHeader";
+import Page from "../../Page";
 
 interface CharacterProps {
   character: any;
@@ -15,33 +15,6 @@ interface InventoryItem {
 }
 
 const MAX_ITEMS = 29;
-
-const getMaxEncumberance = (character: any): number => {
-  const factor = 15;
-
-  // Goliath's are doubled
-  const isGoliath = character.race[0]._.toLowerCase() === 'goliath';
-
-  // Strenght score * 15
-  const strenghthScore = parseInt(character.abilities[0].strength[0].score[0]._, 10);
-
-  return isGoliath ? 2 * strenghthScore * factor : strenghthScore * factor;
-}
-
-const getMaxLiftPushDrag = (character: any): number => {
-  return getMaxEncumberance(character) * 2;
-}
-
-const getCurrentEncumberance = (inventory: InventoryItem[]): string => {
-  let totalWeight = 0;
-
-  // Total up all items weight with count
-  inventory.forEach(item => {
-    totalWeight += parseFloat(item.weight) * parseInt(item.count, 10);
-  })
-
-  return totalWeight.toFixed(2);
-}
 
 export const Inventory = ({character}: CharacterProps) => {
 
@@ -140,10 +113,6 @@ export const Inventory = ({character}: CharacterProps) => {
   const slot6Amount = coins && coins.length 
     && coins[0].slot6 && coins[0].slot6[0].amount ? coins[0].slot6[0].amount[0]._ : '';
 
-  const maxEncumberance = getMaxEncumberance(character);
-  const maxLift = getMaxLiftPushDrag(character);
-  const currentEnc = getCurrentEncumberance(inventory);
-
   return (
     <>
       {pages.map((page,index) => {
@@ -164,7 +133,7 @@ export const Inventory = ({character}: CharacterProps) => {
                       <div className='inventoryHeaderLocation'>
                         Location
                       </div>
-                      <div className='inventoryHeaderWeight'>
+                      <div className='inventoryHeaderWeight hidden'>
                         Weight
                       </div>
                       <div className='inventoryIsEquipped'>
@@ -185,7 +154,7 @@ export const Inventory = ({character}: CharacterProps) => {
                             <div className='inventoryLocation'>
                               {inventoryItem.location}
                             </div>
-                            <div className='inventoryWeight'>
+                            <div className='inventoryWeight hidden'>
                               {inventoryItem.weight}
                             </div>
                             {inventoryItem.equipped && 
@@ -244,31 +213,7 @@ export const Inventory = ({character}: CharacterProps) => {
                         {slot6Amount !== '0' && slot6Amount}
                       </div>
                     </div>
-                  </div>     
-
-                  <div className='listSection' key='encumberance'>
-                    <div className='listLabel'>Encumberance</div>
-                    <div className='encRow'>
-                      <div className='encLabel'>
-                        Maximum
-                      </div>
-                      <div className='encAmount'>
-                        {maxEncumberance}
-                      </div>
-                      <div className='encLabel'>
-                        Lift, Push, Drag
-                      </div>
-                      <div className='encAmount'>
-                        {maxLift}
-                      </div>
-                      <div className='encLabel'>
-                        Current
-                      </div>
-                      <div className='encAmount'>
-                        {currentEnc}
-                      </div>
-                    </div>
-                  </div>
+                  </div> 
                 </>
               )}        
             </div>

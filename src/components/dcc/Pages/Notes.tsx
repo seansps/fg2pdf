@@ -1,6 +1,6 @@
 import React from "react";
-import CharacterHeader from "./CharacterHeader";
-import Page from "./Page";
+import CharacterHeader from "../CharacterHeader";
+import Page from "../../Page";
 
 interface NotesProps {
   character: any;
@@ -53,11 +53,11 @@ export const Notes = ({character}: NotesProps) => {
     height,
     weight,
     size,
-    notes: backstory,
+    notes,
   } = character;
 
   // Add feats
-  allFeatures.push('TITLE:Deity')
+  allFeatures.push('TITLE:Deity or Patron')
   allFeatures.push('TITLE:NORENDER')
   allFeatures.push('TITLE:NORENDER')
   allFeatures.push('TITLE:NORENDER')
@@ -69,82 +69,6 @@ export const Notes = ({character}: NotesProps) => {
     allFeatures.push('None');
   }
 
-  // Add features
-  allFeatures.push('TITLE:Personality Traits')
-  allFeatures.push('TITLE:NORENDER')
-  allFeatures.push('TITLE:NORENDER')
-  if (personalityTraits && personalityTraits.length > 0) {
-    const personalityTraitsStr: string = personalityTraits[0]._;
-    const traitLines = personalityTraitsStr.split('\\n');
-    traitLines.forEach((line) => {
-      // Also split by character count
-      const moreLines = getLinesFromString(line, MAX_CHAR_PER_LINE);
-      moreLines.forEach(nextLine => {
-        allFeatures.push(nextLine);
-      })
-    })
-  }
-  else {
-    allFeatures.push('None');
-  }
-
-  // Add ideals
-  allFeatures.push('TITLE:Ideals')
-  allFeatures.push('TITLE:NORENDER')
-  allFeatures.push('TITLE:NORENDER')
-  if (ideals && ideals.length > 0) {
-    const idealsStr: string = ideals[0]._;
-    const idealLines = idealsStr.split('\\n');
-    idealLines.forEach((line) => {
-      // Also split by character count
-      const moreLines = getLinesFromString(line, MAX_CHAR_PER_LINE);
-      moreLines.forEach(nextLine => {
-        allFeatures.push(nextLine);
-      })
-    })
-  }
-  else {
-    allFeatures.push('None');
-  }
-
-  // Add bonds
-  allFeatures.push('TITLE:Bonds')
-  allFeatures.push('TITLE:NORENDER')
-  allFeatures.push('TITLE:NORENDER')
-  if (bonds && bonds.length > 0) {
-    const bondsStr: string = bonds[0]._;
-    const bondsLines = bondsStr.split('\\n');
-    bondsLines.forEach((line) => {
-      // Also split by character count
-      const moreLines = getLinesFromString(line, MAX_CHAR_PER_LINE);
-      moreLines.forEach(nextLine => {
-        allFeatures.push(nextLine);
-      })
-    })
-  }
-  else {
-    allFeatures.push('None');
-  }
-
-  // Add flaws
-  allFeatures.push('TITLE:Flaws')
-  allFeatures.push('TITLE:NORENDER')
-  allFeatures.push('TITLE:NORENDER')
-  if (flaws && flaws.length > 0) {
-    const flawsStr: string = flaws[0]._;
-    const flawsLines = flawsStr.split('\\n');
-    flawsLines.forEach((line) => {
-      // Also split by character count
-      const moreLines = getLinesFromString(line, MAX_CHAR_PER_LINE);
-      moreLines.forEach(nextLine => {
-        allFeatures.push(nextLine);
-      })
-    })
-  }
-  else {
-    allFeatures.push('None');
-  }
-  
   // Add appearance
   allFeatures.push('TITLE:Appearance')
   allFeatures.push('TITLE:NORENDER')
@@ -164,12 +88,12 @@ export const Notes = ({character}: NotesProps) => {
     allFeatures.push('None');
   }
 
-  // Add backstory
-  allFeatures.push('TITLE:Backstory')
+  // Add notes
+  allFeatures.push('TITLE:Notes')
   allFeatures.push('TITLE:NORENDER')
   allFeatures.push('TITLE:NORENDER')
-  if (backstory && backstory.length > 0) {
-    const backstoryStr: string = backstory[0]._;
+  if (notes && notes.length > 0) {
+    const backstoryStr: string = notes[0]._;
     const backStoryLines = backstoryStr.split('\\n');
     backStoryLines.forEach((line) => {
       // Also split by character count
@@ -182,7 +106,7 @@ export const Notes = ({character}: NotesProps) => {
   else {
     allFeatures.push('None');
   }
-  
+
   const pages: string[][] = [];
   // Chunk into pages
   for (let i=0; i < allFeatures.length; i += MAX_NOTES_LINES) {

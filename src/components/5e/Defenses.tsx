@@ -1,6 +1,6 @@
 import React from "react";
-import shield from "../images/shield.svg";
-import d20 from "../images/d20.png";
+import shield from "./images/shield.svg";
+import d20 from "./images/d20.png";
 import { HitDice } from "./AttibutesAndSkills";
 
 export enum MaxDexBonus {

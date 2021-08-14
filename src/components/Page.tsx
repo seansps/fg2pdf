@@ -5,13 +5,11 @@ interface PageProps {
 }
 
 export const Page = ({children}: PageProps) => {
-    return (
-        <div className='page'>
-            <div className='subpage'>
-                {children}
-            </div>
-        </div>
-    )
+  return (
+    <div className='page'>
+      {children}
+    </div>
+  )
 }
 
 export default Page;

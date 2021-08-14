@@ -2,11 +2,12 @@ import React, { useState, ChangeEvent } from "react";
 import * as xml2js from "xml2js";
 
 interface UploadFileProps {
-  onConvertedFile: (characterData: any) => void;
+  onConvertedFile: (characterData: any, system: string) => void;
 }
 
 const FileSelector = ({onConvertedFile}: UploadFileProps) => {
   const [currentFile, setCurrentFile] = useState<File | null>();
+  const [system, setSystem] = useState<string>('5e');
   const [message, setMessage] = useState<string | null>();
 
   const selectFile = (event: ChangeEvent<HTMLInputElement>) => {
@@ -15,6 +16,14 @@ const FileSelector = ({onConvertedFile}: UploadFileProps) => {
       setCurrentFile(file);
     }
   };
+
+  const selectSystem = (event: ChangeEvent<HTMLSelectElement>) => {
+    if (event.target && event.target.value) {
+      const systemValue = event.target.value;
+      setSystem(systemValue);
+    }
+  };
+
 
   const convert = async () => {
     if (!currentFile) return;
@@ -25,7 +34,7 @@ const FileSelector = ({onConvertedFile}: UploadFileProps) => {
       }
       else {
         // `result` is a JavaScript object
-        onConvertedFile(result);
+        onConvertedFile(result, system);
       }
     });
   };
@@ -43,6 +52,12 @@ const FileSelector = ({onConvertedFile}: UploadFileProps) => {
       >
         Convert XML
       </button>
+      <br/><br/>
+      <select id='system-select' onChange={selectSystem}>
+        <option value="">Select a System</option>
+        <option value="5e">D&amp;D 5th Edition</option>
+        <option value="dcc">Dungeon Crawl Classics</option>
+      </select>
 
       <div className="alert alert-light" role="alert">
         {message}

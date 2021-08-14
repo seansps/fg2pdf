@@ -5,28 +5,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .page {
-  width: 21cm;
-  min-height: 29.7cm;
-  /* padding: 2cm; */
-  margin: 1cm auto;
-  border: 1px #d3d3d3 solid;
-  border-radius: 5px;
+  size: 21.59cm 27.94cm;
   background: white;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-.subpage {
-  padding: 0;
-  /* border: 1px black solid; */
-  height: 237mm;
-  /* outline: 2cm #fff solid; */
+  width: 21.59cm;
+  height: 27.94cm;
+  display: block;
+  margin: 0.5cm auto;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.1);
 }
 
 @page {
-  size: A4;
+  size: 8.5in 11in;
   margin: 0;
+  max-height: 100%;
+  max-width: 100%;
 }
 @media print {
   .page {
@@ -101,12 +104,7 @@ body {
 
 .columns {
   display: flex;
-}
-
-@media print {
-  .columns {
-    margin-left: 70px;
-  }
+  /* margin-left: 70px; */
 }
 
 .stats {
@@ -145,6 +143,29 @@ body {
   flex-direction: column;
   width: 200px;
   margin-left: 32px;
+}
+
+.dccProficienciesCol {
+  display: flex;
+  flex-direction: column;
+  width: 310px;
+  margin-left: 32px;
+}
+
+.dccProficiencies {
+  margin-left: 32px;
+  margin-bottom: 16px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  width: 100%;
+}
+
+.dccProficiency {
+  margin-bottom: 8px;
 }
 
 .profBonusContainer {
@@ -189,6 +210,33 @@ body {
   flex-direction: column;
   font-size: 12px;
   width: 200px;
+}
+
+.dccSaves {
+  margin-top: 16px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  width: 200px;
+  padding: 8px 18px;
+}
+
+.dccSkills {
+  margin-left: 32px;
+  margin-bottom: 16px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  width: 100%;
+}
+
+.footnotes {
+  text-align: left;
 }
 
 .bonus {
@@ -255,6 +303,48 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+
+.dccDefences {
+  background-color: #c9c7c7;
+  border-radius: 8px;
+  width: 200px;
+  padding: 28px 18px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.dccCombatBasics {
+  border-radius: 8px;
+  border: 1px solid #000;
+  width: 200px;
+  padding: 8px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dccCombat {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+}
+
+.dccCombatValue {
+  margin-left: 16px;
+  border-bottom: 1px solid black;
+  width: 75%;
+  text-align: center;
+  transform: translateY(-6px);
+}
+
+.dccCombatLabel {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+  width: 25%;
 }
 
 .row {
@@ -485,6 +575,10 @@ body {
   font-weight: bold;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .treasureRow {
   display: flex;
   width: 100%;
@@ -558,4 +652,22 @@ body {
   align-content: center;
   align-items: center;
   align-self: center;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.row2 {
+  display: flex;
+}
+
+.mainRow {
+  border-radius: 8px;
+  border: 1px solid #000;
+  margin-top: 16px;
+  padding: 0px 16px 8px;
+  display: flex;
+  flex-direction: column;
 }

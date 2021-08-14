@@ -1,7 +1,7 @@
 import React from "react";
 import CharacterHeader from "./CharacterHeader";
 import { getLinesFromString, MAX_CHAR_PER_LINE } from './Notes';
-import Page from './Page';
+import Page from '../Page';
 
 interface AdventureLogProps {
   character: any;

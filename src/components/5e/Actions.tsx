@@ -1,6 +1,6 @@
 import React from "react";
 import CharacterHeader from "./CharacterHeader";
-import Page from './Page';
+import Page from '../Page';
 
 interface SpellsProps {
   character: any;

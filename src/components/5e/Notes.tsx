@@ -6,7 +6,7 @@ interface NotesProps {
   character: any;
 }
 
-const MAX_NOTES_LINES = 33;
+const MAX_NOTES_LINES = 31;
 export const MAX_CHAR_PER_LINE = 95;
 
 export const getLinesFromString = (str: string, max: number): string[] => {

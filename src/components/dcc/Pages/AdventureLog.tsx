@@ -7,7 +7,7 @@ interface AdventureLogProps {
   character: any;
 }
 
-const MAX_LOG_LINES = 26;
+const MAX_LOG_LINES = 24;
 
 export const AdventureLog = ({character}: AdventureLogProps) => {
   

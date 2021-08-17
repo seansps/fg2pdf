@@ -14,7 +14,7 @@ interface InventoryItem {
   equipped: boolean;
 }
 
-const MAX_ITEMS = 32;
+const MAX_ITEMS = 27;
 
 const getMaxEncumberance = (character: any): number => {
   const factor = 15;
@@ -106,8 +106,8 @@ export const Inventory = ({character}: CharacterProps) => {
     equipped: false
   }
 
-  // If there are 24 items or less on last page, add it there, else new page
-  if (pages[pages.length - 1].length <= 24) {
+  // If there are 20 items or less on last page, add it there, else new page
+  if (pages[pages.length - 1].length <= 20) {
     pages[pages.length - 1].push(treasureAndEncumberance);
   } 
   else {

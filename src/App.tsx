@@ -15,9 +15,9 @@ function App() {
   };
 
   return (
-    <Page>
-      <div className="App">
-        {!characterData && (
+    <div className="App">
+      {!characterData && (
+        <Page>
           <div className="fileSelect">
             <h1 className="title">Fantasy Grounds PDF Generator</h1>
             <h2 className="subtitle">
@@ -25,16 +25,16 @@ function App() {
             </h2>
             <FileSelector onConvertedFile={onConvertedFile} />
           </div>
-        )}
-        {characterData &&
-          system &&
-          (system === "5e" ? (
-            <CharacterSheet characterData={characterData} />
-          ) : (
-            <DccCharacterSheet characterData={characterData} />
-          ))}
-      </div>
-    </Page>
+        </Page>
+      )}
+      {characterData &&
+        system &&
+        (system === "5e" ? (
+          <CharacterSheet characterData={characterData} />
+        ) : (
+          <DccCharacterSheet characterData={characterData} />
+        ))}
+    </div>
   );
 }
 

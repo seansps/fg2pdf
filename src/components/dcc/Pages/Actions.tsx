@@ -196,6 +196,7 @@ export const Actions = ({character}: SpellsProps) => {
     const disapprovalRange = getValue(character.disapprovalrange);
     allFeatures.push('TITLE:Disapproval Range');
     allFeatures.push(`1 - ${disapprovalRange || 1}`);
+    allFeatures.push('TITLE:NORENDER')
   }
 
   const allPowers = getPowers(powers || []);
@@ -208,6 +209,7 @@ export const Actions = ({character}: SpellsProps) => {
     if (prevGroup !== curGroup) {
       prevGroup = curGroup;
       allFeatures.push(`TITLE:${curGroup}`)
+      allFeatures.push('TITLE:NORENDER')
     }
     // Push power
     allFeatures.push(powerToString(power))
@@ -223,12 +225,6 @@ export const Actions = ({character}: SpellsProps) => {
   return (
     <>
       {pages.map((page, index) => {
-
-        // Split page out into groups.
-        if (page[0].indexOf('TITLE') !== 0) {
-          page.unshift('TITLE:(Continued)')
-        }
-
         const groups: string[][] = [[]];
         let curIndex = 0;
         // Split into groups

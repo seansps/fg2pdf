@@ -21,20 +21,13 @@ export const Senses = ({
       sensesStr.push(`${sensesStr}${sense._}`);
     });
   }
-  if (!sensesStr.length) {
-    sensesStr.push('None');
-  }
+
+  sensesStr.push('Passive Perception ' + perception);
 
   return (
     <div className='listSection'>
       <div className='listLabel'>
         Senses
-      </div>
-      <div className='passivePerception'>
-        {perception}
-        <div className='statLabel'>
-          Passive Perception
-        </div>
       </div>
       <div className='sensesList'>
         {sensesStr.map((sense, index) => {
@@ -42,9 +35,6 @@ export const Senses = ({
             <div className='sense' key={`sense${index}`}>{sense}</div>
           )
         })}
-      </div>
-      <div className='statLabel'>
-        Other
       </div>
     </div>
   )

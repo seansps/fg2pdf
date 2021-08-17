@@ -39,39 +39,26 @@ html {
   padding: 0;
 }
 
-.page {
-  size: 8.5in 11in;
-  background-color: white !important;
-  width: 8.5in;
-  /* Hack until I figure out why view height doesn't match print height */
-  height: 12.8in;
-  display: block;
-  margin: 0.5cm auto;
-  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.1);
+@media print {
+  body {
+    background-color: white;
+  }
+  .page {
+    margin: 0 !important;
+  }
 }
 
-@page {
-  size: 8.5in 11in;
-  width: 8.5in;
-  height: 11in;
-  margin: 0;
-  max-height: 100%;
-  max-width: 100%;
+.page {
   background-color: white !important;
-}
-@media print {
-  .page {
-    background-color: white !important;
-    -webkit-print-color-adjust: exact;
-    margin: 0;
-    border: initial;
-    border-radius: initial;
-    width: initial;
-    min-height: initial;
-    box-shadow: initial;
-    background: initial;
-    page-break-after: always;
-  }
+  height: 279.4mm;
+  width: 215.9mm;
+  margin: 0.5cm auto;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.1);
+  -webkit-print-color-adjust: exact;
+  text-rendering: optimizeLegibility;
+  page-break-before: always;
+  page-break-after: always;
+  overflow: hidden;
 }
 
 .fileSelect {
@@ -389,7 +376,6 @@ input {
   border-radius: 8px;
   width: 100%;
   margin-left: 48px;
-  margin-right: 8px;
   padding: 28px 18px 0px;
   align-items: center;
   text-align: center;
@@ -585,6 +571,7 @@ input {
   display: flex;
   border-bottom: 1px solid #c9c7c7;
   padding: 4px 0;
+  max-height: 20px;
 }
 
 .inventoryCount {
@@ -604,6 +591,8 @@ input {
 .inventoryLocation {
   width: 15%;
   text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .inventoryWeight {

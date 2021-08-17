@@ -207,6 +207,7 @@ export const Actions = ({character}: SpellsProps) => {
     allFeatures.push(`1st: ${spellSlots1} 2nd: ${spellSlots2} 3rd: ${spellSlots3} ` +
       `4th: ${spellSlots4} 5th: ${spellSlots5} 6th: ${spellSlots6} 7th: ${spellSlots7} ` +
       `8th: ${spellSlots8} 9th: ${spellSlots9}`);
+    allFeatures.push('TITLE:NORENDER')
   }
 
   // Add Pact Magic
@@ -252,6 +253,7 @@ export const Actions = ({character}: SpellsProps) => {
     else if (spellSlots1 > 0) {
       allFeatures.push(`1st Level Slots: ${spellSlots1}`);
     }
+    allFeatures.push('TITLE:NORENDER')
   }
 
   const allPowers = getPowers(powers);
@@ -264,6 +266,7 @@ export const Actions = ({character}: SpellsProps) => {
     if (prevGroup !== curGroup) {
       prevGroup = curGroup;
       allFeatures.push(`TITLE:${curGroup}`)
+      allFeatures.push('TITLE:NORENDER')
     }
     // Push power
     allFeatures.push(powerToString(power))
@@ -279,12 +282,6 @@ export const Actions = ({character}: SpellsProps) => {
   return (
     <>
       {pages.map((page, index) => {
-
-        // Split page out into groups.
-        if (page[0].indexOf('TITLE') !== 0) {
-          page.unshift('TITLE:(Continued)')
-        }
-
         const groups: string[][] = [[]];
         let curIndex = 0;
         // Split into groups

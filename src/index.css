@@ -63,6 +63,8 @@ html {
 
 .fileSelect {
   padding-top: 64px;
+  background-image: url("https://res.cloudinary.com/realm15/image/upload/v1629120445/Extra/d39r9d5t71l21_crldor.jpg");
+  height: 100%;
 }
 
 .title {
@@ -76,6 +78,7 @@ html {
 .subtitle {
   font-family: ScalySansBold;
   font-size: 24px;
+  color: white;
 }
 
 button,
@@ -109,6 +112,7 @@ select {
 label {
   font-family: ScalySansBold;
   font-size: 18px;
+  color: white;
 }
 
 input {

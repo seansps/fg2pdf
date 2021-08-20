@@ -19,9 +19,6 @@ const CharacterSheet = ({characterData}: CharacterSheetProps) => {
 
   const character = characterData.root.character[0];
 
-  console.log('GOT DCC');
-  console.log(character);
-
   return (
     <>
       <Main character={character} />

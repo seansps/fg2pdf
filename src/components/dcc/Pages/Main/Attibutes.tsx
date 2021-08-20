@@ -225,7 +225,7 @@ const Attributes = ({ character }: AttributesAndSkillsProps) => {
             <div className="statLabel">Proficiencies</div>
           </div>
 
-          <Skills skills={skills} />
+          <Skills skills={skills} level={getLevel(character)} />
 
           <div className="dccProficiencies">
             {languages.map((lang, index) => {

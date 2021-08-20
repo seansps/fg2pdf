@@ -105,8 +105,8 @@ export const CharacterHeader = ({character}: CharacterHeaderProps) => {
   // Basic Info
   const name = character.name[0]._;
   const [classStr, title] = getClassAndTitle(character);
-  const occupation = character.occupation[0]._;
-  const alignment = character.alignment ? character.alignment[0]._ : '';
+  const occupation = getValue(character.occupation);
+  const alignment = getValue(character.alignment);
   const exp = character.exp ? character.exp[0]._ : '0';
   const expNeeded = character.exp ? getExpNeeded(character) : '';
   

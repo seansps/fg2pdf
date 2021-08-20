@@ -371,6 +371,12 @@ input {
   width: 28px;
 }
 
+.dccBonusValue {
+  margin-right: 8px;
+  border-bottom: 1px solid #000;
+  min-width: 28px;
+}
+
 .skillStat {
   color: #8c8c8c;
 }

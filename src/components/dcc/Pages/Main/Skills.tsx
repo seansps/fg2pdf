@@ -3,6 +3,7 @@ import { getMapValue, getValue } from "../../../../utils/getValue";
 
 interface SkillsProps {
   skills?: Record<string, unknown>[] | null;
+  level?: number;
 }
 
 interface Skill {
@@ -13,7 +14,7 @@ interface Skill {
   usesPersonality: boolean;
 }
 
-const getSkills = (skills: Record<string, unknown>[]): Skill[] => {
+const getSkills = (skills: Record<string, unknown>[], level: number): Skill[] => {
   let result: Skill[] = [];
 
   const skillsMap = getMapValue(skills);
@@ -23,7 +24,22 @@ const getSkills = (skills: Record<string, unknown>[]): Skill[] => {
     const name = getValue(skill.name);
     const bonus = skill.class ? getValue(skill.class) : '0';
     const stat = getValue(skill.stat).toLowerCase();
-    const dice = getValue(skill.dice);
+    let dice = getValue(skill.dice);
+
+    if (name.toLowerCase() === 'call to arms'
+      || name.toLowerCase() === 'challenge'
+      || name.toLowerCase() === 'calm'
+      || name.toLowerCase() === 'lore') {
+      if (level === 8) {
+        dice = `${dice}+1`;
+      }
+      else if (level === 9) {
+        dice = `${dice}+2`;
+      }
+      if (level >= 10) {
+        dice = `${dice}+3`;
+      }
+    }
 
     const skillMod = Number(bonus) >= 0 ? '+' : '';
     const skillStr = dice ? `${dice}` : `${skillMod}${bonus}`;
@@ -53,12 +69,12 @@ const getBonusSymbol = (skill: Skill): string => {
   return '';
 };
 
-export const Skills = ({ skills }: SkillsProps) => {
+export const Skills = ({ skills, level = 1 }: SkillsProps) => {
   if (!skills || !skills.length) {
     return null;
   }
 
-  const allSkills = getSkills(skills);
+  const allSkills = getSkills(skills, level);
 
   if (!allSkills.length) {
     return null;
@@ -68,7 +84,7 @@ export const Skills = ({ skills }: SkillsProps) => {
     <div className="dccSkills">
       {allSkills.map((skill, index) => (
         <div className="bonus" key={`skill-${index}`}>
-          <div className="bonusValue">{skill.bonus}</div>
+          <div className="dccBonusValue">{skill.bonus}</div>
           <div className="bonusLabel">{skill.name}{getBonusSymbol(skill)}</div>
         </div>
       ))}

@@ -24,14 +24,18 @@ const getActionDice = (charClass: string, level: number): string => {
     if (charClass.toLowerCase() === 'warrior' 
       || charClass.toLowerCase() === 'dwarf'
       || charClass.toLowerCase() === 'wizard'
-      || charClass.toLowerCase() === 'elf') {
+      || charClass.toLowerCase() === 'elf'
+      || charClass.toLowerCase() === 'gnome'
+      || charClass.toLowerCase() === 'paladin'
+      || charClass.toLowerCase() === 'ranger') {
       return 'd20,d14';
     }
   }
   else if (level === 6) {
     if (charClass.toLowerCase() === 'thief'
       || charClass.toLowerCase() === 'halfling'
-      || charClass.toLowerCase() === 'bard') {
+      || charClass.toLowerCase() === 'bard'
+      || charClass.toLowerCase() === 'gnome') {
       return 'd20,d14'; 
     }
     return 'd20,d16';
@@ -42,20 +46,31 @@ const getActionDice = (charClass: string, level: number): string => {
       || charClass.toLowerCase() === 'bard') {
       return 'd20,d16'; 
     }
+    if (charClass.toLowerCase() === 'gnome') {
+      return 'd20,d14';  
+    }
     return 'd20,d20';
   }
   else if (level === 8) {
+    if (charClass.toLowerCase() === 'gnome') {
+      return 'd20,d14';  
+    }
     return 'd20,d20';
   }
   else if (level === 9) {
-    
+    if (charClass.toLowerCase() === 'gnome') {
+      return 'd20,d14';  
+    }
     return 'd20,d20';
   }
-  else if (level === 10) {
+  else if (level >= 10) {
     if (charClass.toLowerCase() === 'thief'
       || charClass.toLowerCase() === 'halfling'
       || charClass.toLowerCase() === 'bard') {
       return 'd20,d20'; 
+    }
+    if (charClass.toLowerCase() === 'gnome') {
+      return 'd20,d14';  
     }
     return 'd20,d20,d14';
   }

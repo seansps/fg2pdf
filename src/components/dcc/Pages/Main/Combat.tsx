@@ -27,7 +27,8 @@ const getActionDice = (charClass: string, level: number): string => {
       || charClass.toLowerCase() === 'elf'
       || charClass.toLowerCase() === 'gnome'
       || charClass.toLowerCase() === 'paladin'
-      || charClass.toLowerCase() === 'ranger') {
+      || charClass.toLowerCase() === 'ranger'
+      || charClass.toLowerCase() === 'tiefling') {
       return 'd20,d14';
     }
   }

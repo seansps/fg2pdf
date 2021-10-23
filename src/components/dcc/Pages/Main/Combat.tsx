@@ -36,7 +36,8 @@ const getActionDice = (charClass: string, level: number): string => {
     if (charClass.toLowerCase() === 'thief'
       || charClass.toLowerCase() === 'halfling'
       || charClass.toLowerCase() === 'bard'
-      || charClass.toLowerCase() === 'gnome') {
+      || charClass.toLowerCase() === 'gnome'
+      || charClass.toLowerCase().includes('cleric')) {
       return 'd20,d14'; 
     }
     return 'd20,d16';
@@ -44,7 +45,8 @@ const getActionDice = (charClass: string, level: number): string => {
   else if (level === 7) {
     if (charClass.toLowerCase() === 'thief'
       || charClass.toLowerCase() === 'halfling'
-      || charClass.toLowerCase() === 'bard') {
+      || charClass.toLowerCase() === 'bard'
+      || charClass.toLowerCase().includes('cleric')) {
       return 'd20,d16'; 
     }
     if (charClass.toLowerCase() === 'gnome') {
@@ -67,7 +69,8 @@ const getActionDice = (charClass: string, level: number): string => {
   else if (level >= 10) {
     if (charClass.toLowerCase() === 'thief'
       || charClass.toLowerCase() === 'halfling'
-      || charClass.toLowerCase() === 'bard') {
+      || charClass.toLowerCase() === 'bard'
+      || charClass.toLowerCase().includes('cleric')) {
       return 'd20,d20'; 
     }
     if (charClass.toLowerCase() === 'gnome') {

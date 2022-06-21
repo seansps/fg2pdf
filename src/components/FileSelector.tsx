@@ -57,6 +57,7 @@ const FileSelector = ({onConvertedFile}: UploadFileProps) => {
         <option value="">Select a System</option>
         <option value="5e">D&amp;D 5th Edition</option>
         <option value="dcc">Dungeon Crawl Classics</option>
+        <option value="cyberpunk red">Cyberpunk RED</option>
       </select>
 
       <div className="alert alert-light" role="alert">

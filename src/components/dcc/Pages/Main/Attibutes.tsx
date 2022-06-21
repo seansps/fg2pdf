@@ -86,7 +86,8 @@ const Attributes = ({ character }: AttributesAndSkillsProps) => {
   const willSave = saves.willpower[0].total[0]._;
   const willSaveMod = willSave.indexOf("-") === 0 ? "" : "+";
 
-  const ac = character.ac[0].total[0]._;
+  const ac = character.ac && character.ac.length && character.ac[0].total ?  
+    character.ac[0].total[0]._ : '10';
   const hp = character.hp[0].total[0]._;
   const wounds = character.hp[0].wounds[0]._;
   const initiative = character.initiative[0].total[0]._;

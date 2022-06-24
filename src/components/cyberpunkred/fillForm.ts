@@ -631,13 +631,14 @@ const fillForm = async (characterData: CharacterSheetParam) => {
 
       const name = getValue(item.name).replace(/[^\x00-\x7F]/g, "");
       const ammo = getValue(item.ammo);
+      const skill = getValue(item.skill);
       let link = '';
       if (item.link && item.link.length) {
         link = item.link[0].recordname[0] || '';
       }
 
       // Look in inventory with matchning link for item to get RoF
-      let rof = 'N/A';
+      let rof = '';
       let damage = '';
       let subtype = '';
       const recordNameMatch = link.match(/(id-\d+)/);
@@ -651,6 +652,44 @@ const fillForm = async (characterData: CharacterSheetParam) => {
         rof = getValue(item.rof);
         damage = getValue(item.damage);
         subtype = getValue(item.subtype);
+      }
+      else {
+        // These skills have set RoF
+        if (['Brawling', 'Aikido', 'Taekwondo', 'Karate', 'Judo'].includes(skill)) {
+          rof = '2';
+          const bodyStat = parseInt(getValue(character.body_current), 10);
+          if (skill == 'Brawling') {
+            let hasCyberArm = false;
+            const leftArm = getValue(character.left_cyberarm_name);
+            const rightArm = getValue(character.right_cyberarm_name);
+            if ((leftArm && leftArm !== '' && !leftArm.includes("Meat"))
+              || (rightArm && rightArm !== '' && !rightArm.includes("Meat"))) {
+              hasCyberArm = true;
+            }
+            damage = '1d6';
+            if (hasCyberArm || bodyStat >= 5 && bodyStat <= 6) {
+              damage = '2d6';
+            }
+            else if (bodyStat >= 7 && bodyStat <= 10) {
+              damage = '3d6';
+            }
+            else if (bodyStat >= 11) {
+              damage = '4d6'
+            }
+          }
+          else {
+            damage = '1d6 halfsp';
+            if (bodyStat >= 5 && bodyStat <= 6) {
+              damage = '2d6 halfsp';
+            }
+            else if (bodyStat >= 7 && bodyStat <= 10) {
+              damage = '3d6 halfsp';
+            }
+            else if (bodyStat >= 11) {
+              damage = '4d6 halfsp'
+            }
+          }
+        }
       }
 
       // Only add if index < 6 (only 6 slots in teh sheet)

@@ -107,7 +107,7 @@ export const Inventory = ({character}: CharacterProps) => {
   }
 
   // If there are 20 items or less on last page, add it there, else new page
-  if (pages[pages.length - 1].length <= 20) {
+  if (pages && pages.length > 0 && pages[pages.length - 1].length <= 20) {
     pages[pages.length - 1].push(treasureAndEncumberance);
   } 
   else {

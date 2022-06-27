@@ -113,7 +113,7 @@ const getMaxDexBonus = (inventoryList: any): MaxDexBonus => {
   // (Type = armor, carried = 2) 
   // Then check 'dexbonus' property
 
-  if (!inventoryList && ! inventoryList[0]) {
+  if (!inventoryList || !inventoryList[0]) {
     return MaxDexBonus.NoMax;
   }
 

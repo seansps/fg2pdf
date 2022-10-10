@@ -90,7 +90,7 @@ const getExpNeeded = (character: any): string => {
 export const CharacterHeader = ({character}: CharacterHeaderProps) => {
   
   // Basic Info
-  const name = character.name[0]._;
+  const name = character.name ? character.name[0]._ : '';
   const classes = getClasses(character);
   const background = character.background[0]._;
   const alignment = character.alignment ? character.alignment[0]._ : '';

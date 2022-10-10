@@ -305,7 +305,7 @@ const fillFormOfficial =  async (characterData: CharacterSheetParam) => {
   const cashField = form.getTextField('Cash');
 
   // Fill in the basic info fields
-  const name = character.name[0]._;
+  const name = character.name ? character.name[0]._ : '';
   nameField.setText(name);
   
   let roleAbilities = '';
@@ -1305,7 +1305,7 @@ const fillFormUnofficial = async (characterData: CharacterSheetParam) => {
   const cashField = form.getTextField('Cash');
 
   // Fill in the basic info fields
-  const name = character.name[0]._;
+  const name = character.name ? character.name[0]._ : '';
   nameField.setText(name);
 
   let roleAbilities = '';

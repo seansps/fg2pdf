@@ -455,14 +455,14 @@ const fillFormOfficial =  async (characterData: CharacterSheetParam) => {
     meleeWeaponField.setText(getSkill(character, "Melee Weapon").level);
     meleeWeaponTotalField.setText(getSkill(character, "Melee Weapon").total);
     // Determine highest martial arts skill from fighting_martial_arts_skilllist
-    let martialArts = parseInt(getSkill(character, "Aikido").level, 10);
-    let martialArtsTotal = parseInt(getSkill(character, "Aikido").total, 10);
-    const judo = parseInt(getSkill(character, "Judo").level, 10);
-    const judoTotal = parseInt(getSkill(character, "Judo").total, 10);
-    const karate = parseInt(getSkill(character, "Karate").level, 10);
-    const karateTotal = parseInt(getSkill(character, "Karate").total, 10);
-    const taekwondo = parseInt(getSkill(character, "Taekwondo").level, 10);
-    const taekwondoTotal = parseInt(getSkill(character, "Taekwondo").total, 10);
+    let martialArts = parseInt(getSkill(character, "Aikido").level, 10) || 0;
+    let martialArtsTotal = parseInt(getSkill(character, "Aikido").total, 10) || 0;
+    const judo = parseInt(getSkill(character, "Judo").level, 10) || 0;
+    const judoTotal = parseInt(getSkill(character, "Judo").total, 10) || 0;
+    const karate = parseInt(getSkill(character, "Karate").level, 10) || 0;
+    const karateTotal = parseInt(getSkill(character, "Karate").total, 10) || 0;
+    const taekwondo = parseInt(getSkill(character, "Taekwondo").level, 10) || 0;
+    const taekwondoTotal = parseInt(getSkill(character, "Taekwondo").total, 10) || 0;
     if (judo > martialArts) {
       martialArts = judo;
       martialArtsTotal = judoTotal;
@@ -591,15 +591,14 @@ const fillFormOfficial =  async (characterData: CharacterSheetParam) => {
       const item = inventorylist[key][0];
 
       const name = getValue(item.name).replace(/[^\x00-\x7F]/g, "");
-      const notes = typeToValue(getValue(item.gearType));
-      const type = getValue(item.gearType).toLocaleLowerCase();
+      const type = (getValue(item.gearType) || "item_gear").toLocaleLowerCase();
+      const notes = typeToValue(type);
 
       // 0 = Equipped in this system instead of 2
       const isEquipped = getValue(item.carried) === '0';
       const count = getValue(item.count);
-
       // Gear items (not ammo, not armor, not fashion, not melee, not ranged, not cyberware)
-      if (gearIndex < 19 && !isEquipped && !type.includes("ammo") && !type.includes("cyberware")
+      if (gearIndex < 19 && !type.includes("ammo") && !type.includes("cyberware")
         && !type.includes("armor") && !type.includes("fashion") && !type.includes("melee") && !type.includes("ranged")) {
         const gearField = form.getTextField(`Gear ${gearIndex}`);
         const notesField = form.getTextField(`Gear Notes ${gearIndex}`);
@@ -2215,7 +2214,7 @@ const typeToValue = (geartype: string): string => {
   if (geartype === "item_general") return "General Gear";
   if (geartype === "item_gear") return "General Gear";
   if (geartype === "item_demon") return "Demon";
-  return "";
+  return "General Gear";
 }
 
 export default fillForm;

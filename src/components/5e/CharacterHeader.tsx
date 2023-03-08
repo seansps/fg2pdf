@@ -8,20 +8,23 @@ const getClasses = (character: any): string => {
   let classStr = '';
 
   const classes = character.classes;
+ 
   classes.forEach((c: any) => {
     const curClassKeys = Object.keys(c);
-    const curClass = c[curClassKeys[0]][0];
-    if (curClass) {
-      const name = curClass.name[0]._;
-      const level = curClass.level[0]._;
-      
-      if (classStr.length > 0) {
-        classStr = `${classStr} / ${name} ${level}`;
+    curClassKeys.forEach(classKey => {
+      const curClass = c[classKey][0];
+      if (curClass) {
+        const name = curClass.name[0]._;
+        const level = curClass.level[0]._;
+        
+        if (classStr.length > 0) {
+          classStr = `${classStr} / ${name} ${level}`;
+        }
+        else {
+          classStr = `${name} ${level}`;
+        }
       }
-      else {
-        classStr = `${name} ${level}`;
-      }
-    }
+    })
   });
 
   return classStr;
@@ -92,9 +95,9 @@ export const CharacterHeader = ({character}: CharacterHeaderProps) => {
   // Basic Info
   const name = character.name ? character.name[0]._ : '';
   const classes = getClasses(character);
-  const background = character.background[0]._;
+  const background = character.background ? character.background[0]._ : '';
   const alignment = character.alignment ? character.alignment[0]._ : '';
-  const race = character.race[0]._;
+  const race = character.race ? character.race[0]._ : '';
   const exp = character.exp ? character.exp[0]._ : '-';
   const expNeeded = character.exp ? getExpNeeded(character) : '';
   

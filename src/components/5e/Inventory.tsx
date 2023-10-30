@@ -20,7 +20,12 @@ const getMaxEncumberance = (character: any): number => {
   const factor = 15;
 
   // Goliath's are doubled
-  const isGoliath = character.race[0]._.toLowerCase() === 'goliath';
+  let isGoliath = false;
+  if (character.race !== null && 
+    character.race !== undefined &&
+    character.race.length > 0) {
+      isGoliath = character.race[0]._.toLowerCase() === 'goliath';
+    }
 
   // Strenght score * 15
   const strenghthScore = parseInt(character.abilities[0].strength[0].score[0]._, 10);

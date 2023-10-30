@@ -37,10 +37,12 @@ const getExpNeeded = (character: any): string => {
   const classes = character.classes;
   classes.forEach((c: any) => {
     const curClassKeys = Object.keys(c);
-    const curClass = c[curClassKeys[0]][0];
-    if (curClass) {
-      const curLevel = curClass.level[0]._;
-      level += (parseInt(curLevel, 10))
+    if (curClassKeys.length > 0 && curClassKeys[0].length > 0) {
+      const curClass = c[curClassKeys[0]][0];
+      if (curClass) {
+        const curLevel = curClass.level[0]._;
+        level += (parseInt(curLevel, 10))
+      }
     }
   });
 

@@ -26,7 +26,10 @@ const getHitDice = (character: any): HitDice => {
   const classes = character.classes;
   classes.forEach((c: any) => {
     const curClassKeys = Object.keys(c);
-    const curClass = c[curClassKeys[0]][0];
+    let curClass = null;
+    if (curClassKeys.length > 0 && curClassKeys[0].length > 0) {
+      curClass = c[curClassKeys[0]][0];
+    }
     if (curClass) {
       const name = curClass.name[0]._;
       const level = parseInt(curClass.level[0]._, 10);

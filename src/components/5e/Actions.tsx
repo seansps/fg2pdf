@@ -193,15 +193,15 @@ export const Actions = ({character}: SpellsProps) => {
     && spellSlots[0].spellslots1[0] && spellSlots[0].spellslots1[0].max
     && parseInt(spellSlots[0].spellslots1[0].max[0]._, 10) > 0) {
 
-    const spellSlots1 = parseInt(spellSlots[0].spellslots1[0].max[0]._, 10)
-    const spellSlots2 = parseInt(spellSlots[0].spellslots2[0].max[0]._, 10)
-    const spellSlots3 = parseInt(spellSlots[0].spellslots3[0].max[0]._, 10)
-    const spellSlots4 = parseInt(spellSlots[0].spellslots4[0].max[0]._, 10)
-    const spellSlots5 = parseInt(spellSlots[0].spellslots5[0].max[0]._, 10)
-    const spellSlots6 = parseInt(spellSlots[0].spellslots6[0].max[0]._, 10)
-    const spellSlots7 = parseInt(spellSlots[0].spellslots7[0].max[0]._, 10)
-    const spellSlots8 = parseInt(spellSlots[0].spellslots8[0].max[0]._, 10)
-    const spellSlots9 = parseInt(spellSlots[0].spellslots9[0].max[0]._, 10)
+    const spellSlots1 = parseInt(spellSlots[0].spellslots1[0].max[0]._, 10);
+    const spellSlots2 = spellSlots[0].spellslots2 ? parseInt(spellSlots[0].spellslots2[0].max[0]._, 10) : 0;
+    const spellSlots3 = spellSlots[0].spellslots3 ? parseInt(spellSlots[0].spellslots3[0].max[0]._, 10) : 0;
+    const spellSlots4 = spellSlots[0].spellslots4 ? parseInt(spellSlots[0].spellslots4[0].max[0]._, 10) : 0;
+    const spellSlots5 = spellSlots[0].spellslots5 ? parseInt(spellSlots[0].spellslots5[0].max[0]._, 10) : 0;
+    const spellSlots6 = spellSlots[0].spellslots6 ? parseInt(spellSlots[0].spellslots6[0].max[0]._, 10) : 0;
+    const spellSlots7 = spellSlots[0].spellslots7 ? parseInt(spellSlots[0].spellslots7[0].max[0]._, 10) : 0;
+    const spellSlots8 = spellSlots[0].spellslots8 ? parseInt(spellSlots[0].spellslots8[0].max[0]._, 10) : 0;
+    const spellSlots9 = spellSlots[0].spellslots9 ? parseInt(spellSlots[0].spellslots9[0].max[0]._, 10) : 0;
 
     allFeatures.push('TITLE:Spell Slots')
     allFeatures.push(`1st: ${spellSlots1} 2nd: ${spellSlots2} 3rd: ${spellSlots3} ` +
@@ -215,15 +215,15 @@ export const Actions = ({character}: SpellsProps) => {
     && spellSlots[0].pactmagicslots1[0] && spellSlots[0].pactmagicslots1[0].max
     && parseInt(spellSlots[0].pactmagicslots1[0].max[0]._, 10) > 0) {
 
-    const spellSlots1 = parseInt(spellSlots[0].pactmagicslots1[0].max[0]._, 10)
-    const spellSlots2 = parseInt(spellSlots[0].pactmagicslots2[0].max[0]._, 10)
-    const spellSlots3 = parseInt(spellSlots[0].pactmagicslots3[0].max[0]._, 10)
-    const spellSlots4 = parseInt(spellSlots[0].pactmagicslots4[0].max[0]._, 10)
-    const spellSlots5 = parseInt(spellSlots[0].pactmagicslots5[0].max[0]._, 10)
-    const spellSlots6 = parseInt(spellSlots[0].pactmagicslots6[0].max[0]._, 10)
-    const spellSlots7 = parseInt(spellSlots[0].pactmagicslots7[0].max[0]._, 10)
-    const spellSlots8 = parseInt(spellSlots[0].pactmagicslots8[0].max[0]._, 10)
-    const spellSlots9 = parseInt(spellSlots[0].pactmagicslots9[0].max[0]._, 10)
+    const spellSlots1 = parseInt(spellSlots[0].pactmagicslots1[0].max[0]._, 10);
+    const spellSlots2 = spellSlots[0].pactmagicslots2 ? parseInt(spellSlots[0].pactmagicslots2[0].max[0]._, 10) : 0;
+    const spellSlots3 = spellSlots[0].pactmagicslots3 ? parseInt(spellSlots[0].pactmagicslots3[0].max[0]._, 10) : 0;
+    const spellSlots4 = spellSlots[0].pactmagicslots4 ? parseInt(spellSlots[0].pactmagicslots4[0].max[0]._, 10) : 0;
+    const spellSlots5 = spellSlots[0].pactmagicslots5 ? parseInt(spellSlots[0].pactmagicslots5[0].max[0]._, 10) : 0;
+    const spellSlots6 = spellSlots[0].pactmagicslots6 ? parseInt(spellSlots[0].pactmagicslots6[0].max[0]._, 10) : 0;
+    const spellSlots7 = spellSlots[0].pactmagicslots7 ? parseInt(spellSlots[0].pactmagicslots7[0].max[0]._, 10) : 0;
+    const spellSlots8 = spellSlots[0].pactmagicslots8 ? parseInt(spellSlots[0].pactmagicslots8[0].max[0]._, 10) : 0;
+    const spellSlots9 = spellSlots[0].pactmagicslots9 ? parseInt(spellSlots[0].pactmagicslots9[0].max[0]._, 10) : 0;
 
     allFeatures.push('TITLE:Pact Magic')
     if (spellSlots9 > 0) {

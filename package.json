@@ -23,6 +23,9 @@
     "web-vitals": "^1.0.1",
     "xml2js": "^0.4.23"
   },
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
